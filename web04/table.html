@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
             font-size: 14px;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid rgb(255, 255, 255);
             border-collapse: collapse;
             padding: 10px;
@@ -26,19 +29,23 @@
             width: 60px;
         }
 
+        .price-title {
+            text-align: center;
+        }
+
         table tr:first-child {
             background-color: rgb(38, 196, 227);
         }
-
     </style>
 </head>
+
 <body>
     <table>
         <tr>
             <th class="number">no.</th>
             <th>廠牌</th>
             <th>型號</th>
-            <th style="text-align: center">售價</th>
+            <th class="price-title">售價</th>
             <th>贈品</th>
         </tr>
         <tr style="background-color: rgb(209, 239, 251);">
@@ -113,4 +120,5 @@
         </tr>
     </table>
 </body>
+
 </html>
