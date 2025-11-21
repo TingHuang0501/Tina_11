@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+
+#main {
+    background-color: white;
+    margin: 0 10px 0 170px;
+    padding: 0 20px;
+}
+
+#nav{
+    width: 150px;
+    float: left;
+}
+
+#top{
+    background-image: url(../images/top.gif);
+    height: 48px;
+    background-repeat: no-repeat;
+    margin-left: 170px;
+}
+
