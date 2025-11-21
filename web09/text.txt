@@ -1,0 +1,21 @@
+﻿
+教學課程：設定網站和專案檔案
+
+本教學課程介紹 Macromedia Dreamweaver 8 網站的概念，並說明如何設定 Cafe Townsend 範例網站的專案檔案。在Dreamweaver 中，網站通常由兩個部分組成：本機電腦 (本機網站) 上的一組檔案，以及當您準備將檔案公佈時，所要上傳的遠端網站伺服器位置 (遠端網站)。您使用 Dreamweaver「檔案」面板來管理網站的檔案。利用 Dreamweaver 建立網站最常用的方法，是在本機磁碟上建立及編輯頁面，然後再將這些頁面的複本上傳到遠端網站伺服器上，以便在網路上進行檢視。本教學課程僅教導如何設定本機網站，讓您能立即開始建立網頁。初步完成網站後，接著要學習如何建立遠端網站，以便將檔案上傳到網站伺服器。
+
+步驟一、在硬碟上建立名為 local_sites 的新資料夾。 例如，在以下兩個位置中擇一建立名為 local_sites 的資料夾：
+
+（1）Windows：C:\Documents and Settings\your_user_name\My Documents\local_sites 在 Macintosh 中，您的使用者資料夾中已經有一個資料夾稱為 Sites。Sites 資料夾不可以做為本機資料夾，Sites 資料夾是當您以 Macintosh 做為網站伺服器時，用來放置公用網頁的地方。
+
+（2）Macintosh：Macintosh HD/Users/your_user_name/Documents/local_sites注意 關於本機和遠端「根」資料夾?Dreamweaver 網站的本機「根」資料夾通常是網站的主要或最上層資料夾。通常在遠端網站 (網站伺服器) 上也會有一個對應的相同資料夾。根資料夾通常就是網站 URL 中，接在網域名稱之後的第一個部分。例如，如果本機根資料夾叫做 mywebsite，而您在遠端網站上定義了相同的根資料夾，那麼您網站的 URL 可能會像是 http://www.yahoo.com/mywebsite。
+
+步驟二、在硬碟上的 Dreamweaver 應用程式資料夾中找出 cafe_townsend 資料夾。 如果您將 Dreamweaver 設定於預設的位置，資料夾的路徑即如下所示：
+
+（1）Windows：C:\Program Files\Macromedia\Dreamweaver 8\Tutorial_assets\cafe_townsend\。 Sites 資料夾是當您以 Macintosh 做為網站伺服器時，用來放置公用網頁的地方。
+
+（2）Macintosh：Macintosh HD/Applications/Macromedia Dreamweaver 8/Tutorial_assets/cafe_townsend。接在網域名稱之後的第一個部分。例如，如果本機根資料夾叫做 mywebsite，而您在遠端網站上定義了相同的根資料夾，那麼您網站的 URL 可能會像是 http://www.yahoo.com/mywebsite。
+
+步驟三、將 cafe_townsend 資料夾複製到 local_sites 資料夾中。 cafe_townsend 資料夾將用來當作 Dreamweaver 網站的根資料夾 (主要資料夾)。
+
+
+

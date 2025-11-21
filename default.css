@@ -1,0 +1,8 @@
+body{
+    background-color: bisque;
+}
+
+h1, h2 {
+    color: rgb(0, 67, 119);
+    font-family: 'Times New Roman', Times, serif;
+}

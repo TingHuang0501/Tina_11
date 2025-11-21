@@ -1,0 +1,19 @@
+#news{
+    width:385px;
+    margin: center;
+}
+
+#news .title{
+    height: 116px;
+    background-image: url(../images/t1.jpg);
+}
+
+#news .content{
+    background-image: url(../images/t2.jpg);
+    padding: 0px 30px;
+}
+
+#news .footer{
+    height: 67px;
+    background-image: url(../images/t3.jpg);
+}
