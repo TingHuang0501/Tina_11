@@ -5,12 +5,39 @@ body {
 #main {
     background-color: white;
     margin: 0 10px 0 170px;
-    padding: 0 20px;
+    padding: 5px 20px;
+    float: top;
 }
 
 #nav{
     width: 150px;
     float: left;
+    background-image: url(../images/menu.gif);
+    background-repeat: no-repeat;
+    height: 400px;
+}
+
+#nav ul{
+    padding: 160px 0 0 30px;    
+}
+
+#nav ul li{
+    border: 1px solid white;
+    margin: 10px 0;
+    text-align: center;
+}
+
+#nav a{
+    text-decoration: none;
+    color: white;
+    /* 讓 a 變成區塊，能佔滿整個寬度 */
+    display: block;
+}
+
+#nav a:hover{
+    text-decoration: none;
+    background-color: rgb(255, 254, 240);
+    color: black;
 }
 
 #top{
