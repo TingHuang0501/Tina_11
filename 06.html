@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Basics</title>
+    <script>
+        // alert("Hello World!");
+        // alert("Hello World!");
+        console.log("'m a log!");
+        console.log("結果：", 11 * 111 * 9);
+
+        document.write('<h2>這是使用 JavaScript document.write 動態產生的標題</h2>');
+
+        // 區域變數, 一個區域只能宣告一次
+        let x = 3;
+        let y = 4;
+        console.log(x + y);
+
+        console.log(x * x * x + 10);
+        x = 5;
+        console.log(x * x * x + 10);
+
+        hello();
+        function hello() {
+            let x = 101;
+            console.log("hello" + x);
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>JavaScript</h1>
+    <p id="description">JavaScript 是一種用來製作網頁特效的程式語言。它可以讓網頁變得更有互動性，提升使用者體驗。</p>
+
+    <h2>變數</h2>
+
+    <script>
+        // alert("Hello JS!");
+
+        document.write("This is written by JavaScript.");
+
+        document.write("<h2>JavaScript 可以動態地改變網頁內容</h2>");
+
+        document.getElementsByTagName("h1")[0].style.color = "red";
+
+        document.getElementById("description").style.color = "blue";
+    </script>
+
+</body>
+
+</html>
