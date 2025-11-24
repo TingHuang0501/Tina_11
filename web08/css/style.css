@@ -18,7 +18,8 @@ body {
 }
 
 #nav ul {
-    padding: 160px 0 0 30px;
+    list-style-type: none;
+    padding: 160px 0 0 0;
 }
 
 #nav ul li {
@@ -40,9 +41,10 @@ body {
     color: black;
 }
 
+
 #top {
     background-image: url(../images/top.gif);
     height: 48px;
     background-repeat: no-repeat;
-    margin:0 0 0 170px;
+    margin:0 0 0 160px;
 }
