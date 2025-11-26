@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <pre>// 函式範例</pre>
+        <p id="msg01">這裡會顯示訊息</p>
+
+        <input type="text" id="myText" placeholder="請輸入訊息">
+        <button onclick="showMessage()">執行</button>
+
+
+        <p id="msg02">這裡會顯示訊息</p>
+        <input type="button" value="計算" onclick="document.getElementById('msg02').innerText = sum(10, 20);">
+
+        <h2>物件範例</h2>
+        <p id="msg04">car info</p>
+
+        <h2>陣列</h2>
+        <p id="msg05">陣列內容</p>
+
+    </div>
+
+    <script>
+
+        var chinese_scores = [95, 88, 76, 92, 85];
+        var english_scores = [90, 87, 78, 85, 80];
+        var math_scores = [88, 90, 92, 85, 87];
+
+        console.log("chinese", chinese_scores.length);
+        console.log("english", english_scores.indexOf(78));console.log("english", english_scores.indexOf(100));
+        console.log("math", math_scores.join("-"));
+
+
+
+        document.getElementById("msg05").innerHTML = "國文: " + chinese_scores[0] + " 英文: " + english_scores[0] + " 數學: " + math_scores[0] + "<br>";
+        document.getElementById("msg05").innerHTML += (chinese_scores[0] +english_scores[0] +math_scores[0]);
+
+
+
+
+        var cars2 = [
+            { make: "Toyota", model: "Corolla", year: 2020, color: "red" },
+            { make: "Honda", model: "Civic", year: 2019, color: "blue" },
+            { make: "Ford", model: "Focus", year: 2018, color: "green" }
+        ]
+
+        console.log("cars2", cars2.length);
+
+        document.getElementById("msg05").innerHTML += "<br>" + cars2[1].make + " " + cars2[1].model + " " + cars2[1].year + " " + cars2[1].color;
+
+
+
+
+
+        // let var , (固定值)const
+        var car = {
+            color: "red",
+            type: "Toyota",
+            year: 2020,
+            start: function () {
+                return "Car started";
+            },
+            stop: function () {
+                return "Car stopped";
+            }
+        }
+
+        car.model = "Corolla"; // 動態新增屬性
+
+        document.getElementById("msg04").innerText = " " + car.model + " " + car.color + car.year + car.start() + " " + "www" +  " " + car.stop();
+
+
+        // 呼叫函數,並傳入參數
+        // showMessage("Hello World");
+
+        // 自訂函數(副程式)
+        function showMessage() {
+            const message = document.getElementById("myText").value;
+            document.getElementById("msg01").innerText = message;
+            document.getElementById("msg01").style.color = "green";
+        }
+
+
+
+        // 帶有回傳值的函數
+        function sum(a, b) {
+            return a + b;
+        }
+    </script>
+
+</body>
+
+</html>
