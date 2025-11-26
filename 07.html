@@ -25,22 +25,74 @@
         <h2>陣列</h2>
         <p id="msg05">陣列內容</p>
 
+        <h2>判斷式</h2>
+        <p>判斷式是用來做條件判斷的</p>
+        <pre>if (條件) {
+             // 條件為 true 時執行的程式
+             } else {
+             // 條件為 false 時執行的程式
+             }
+        </pre>
+        <input type="number" id="score" placeholder="請輸入分數">
+        <button onclick="checkScore()">檢查分數</button>
+        <input type="number" id="score2" placeholder="請輸入分數">
+        <button onclick="checkScore2()">檢查分數</button>
+
     </div>
 
     <script>
+        // 判斷式
+        function checkScore() {
+            let score = document.getElementById("score").value;
+            if (score >= 60) {
+                alert("及格");
+            } else {
+                alert("不及格");
+            }
+        }
+
+        // 多條件判斷式
+        function checkScore2() {
+            let score = document.getElementById("score2").value;
+            if (score >= 90) {
+                alert("優等");
+            } else if (score >= 80) {
+                alert("甲等");
+            } else if (score >= 70) {
+                alert("乙等");
+            } else if (score >= 60) {
+                alert("丙等");
+            } else {
+                alert("不及格");
+            }
+        }
+
+
+
+
+
+
 
         var chinese_scores = [95, 88, 76, 92, 85];
         var english_scores = [90, 87, 78, 85, 80];
         var math_scores = [88, 90, 92, 85, 87];
 
         console.log("chinese", chinese_scores.length);
-        console.log("english", english_scores.indexOf(78));console.log("english", english_scores.indexOf(100));
+        console.log("english", english_scores.indexOf(78)); console.log("english", english_scores.indexOf(100));
         console.log("math", math_scores.join("-"));
+
+        english_scores.push(100);
+        console.log("english", english_scores);
+        english_scores.pop();
+        console.log("english", english_scores);
+        english_scores.unshift(100);
+        console.log("english", english_scores);
+
 
 
 
         document.getElementById("msg05").innerHTML = "國文: " + chinese_scores[0] + " 英文: " + english_scores[0] + " 數學: " + math_scores[0] + "<br>";
-        document.getElementById("msg05").innerHTML += (chinese_scores[0] +english_scores[0] +math_scores[0]);
+        document.getElementById("msg05").innerHTML += (chinese_scores[0] + english_scores[0] + math_scores[0]);
 
 
 
@@ -74,7 +126,7 @@
 
         car.model = "Corolla"; // 動態新增屬性
 
-        document.getElementById("msg04").innerText = " " + car.model + " " + car.color + car.year + car.start() + " " + "www" +  " " + car.stop();
+        document.getElementById("msg04").innerText = " " + car.model + " " + car.color + car.year + car.start() + " " + "www" + " " + car.stop();
 
 
         // 呼叫函數,並傳入參數
