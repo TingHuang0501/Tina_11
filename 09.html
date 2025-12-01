@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <h1>第九堂 jQuery</h1>
+    <p>基本語法</p>
+    <pre>
+        $(selector).action()
+    </pre>
+
+    <p>範例: 變更文字顏色</p>
+    <pre>
+        $("p").css("color", "red");
+    </pre>
+
+    <button id="btn1">變更文字顏色成淡紫色</button>
+    <p>這是一段文字</p>
+    <script>
+        $("#btn1").click(function () {
+            $("p").css("color", "violet");
+        });
+    </script>
+
+    <button id="btn2">點我隱藏段落</button>
+    <button id="btn3">點我顯示段落</button>
+    <p>這是一段文字</p>
+
+    
+    <h2>ready</h2>
+    <pre>
+        <!-- 舊寫法 -->
+        $(document).ready(function(){
+            // jQuery 程式碼放這裡
+        });
+
+        <!-- 新寫法 -->
+        $(function() {
+            // jQuery 程式碼放這裡
+        });
+    </pre>
+
+
+    <h2>常用事件</h2>
+    <p>focus 事件 (取得焦點)</p>
+    <input type="text" id="txt1" value="Press me">
+    <p>blur 事件 (失去焦點)</p>
+    <input type="text" id="txt2" value="Press me">
+
+    <p>submit事件</p>
+    <form action="" id="form1">
+        <input type="text" name="" id="username" placeholder="姓名">
+        <input type="text" name="" id="usertel" placeholder="電話">
+        <input type="submit" value="送出">
+    </form>
+
+    <h2>查詢功能</h2>
+    <p>模仿Google搜尋功能</p>
+    <form action="https://www.google.com/search">
+        <input type="text" name="q" id="">
+        <input type="submit" value="Google搜尋">
+    </form>
+
+    <h2>註冊功能</h2>
+    <form id="form_register" action="register.php">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" placeholder="姓名" required>
+        <br><br>
+
+        <label for="user">帳號：</label>
+        <input type="text" id="user" name="user" placeholder="帳號" required>
+        <br><br>
+
+        <label for="password">密碼：</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <label for="confirm">確認密碼：</label>
+        <input type="password" id="confirm" name="confirm" required>
+        <br><br>
+
+        <input type="submit" value="註冊">
+
+        <div id="msg" style="color: red;"></div>
+        <br><br>
+    </form>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#form_register').on('submit',function(){
+               if($('#password').val() != $('#confirm').val()){
+                $('#msg').text('密碼與確認密碼不符, 請重新輸入');
+                return false; //阻止表單送出
+               }
+            })
+
+
+            $('#form1').on("submit", function () {
+                let username = $("#username").val();
+                let usertel = $("#usertel").val();
+                alert("姓名:" + username + "電話:" + usertel);
+                return false; //防止表單送出
+            })
+
+
+
+            $('#txt1').focus(function () {
+                $(this).css("background-color", "lightblue");
+            });
+            $('#txt2').blur(function () {
+                $(this).css("background-color", "yellow");
+            });
+
+
+
+            $("#btn2").on('click', function () {
+                $("p").hide();
+                $(this).css("background-color", "gray");
+            });
+            $("#btn3").click(function () {
+                $("p").show();
+                $(this).css("background-color", "yellow");
+            });
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>

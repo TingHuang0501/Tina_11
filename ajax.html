@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="js/jquery-3.7.1.js"></script>
+</head>
+<body>
+
+    <h1>AJAX</h1>
+    
+    <ul id="news"></ul>
+
+    <script>
+        $(function() {
+             $.ajax({
+                url: 'news.json',
+                dataType: 'json',
+                success: function(data){
+                    $.each(data, function(index, item){
+                        $('#news').append('<li>' + item.date + '-' + item.title + '</li>')
+                    });
+                    //console.log(data);
+                    //$('#news').text(data[0].title);
+                },
+                error: function(){
+                    console.log('Error fetching data')
+                }
+             });
+        });
+    </script>
+
+</body>
+</html>
