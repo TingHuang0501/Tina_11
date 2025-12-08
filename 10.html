@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <section id="bootstrap">
+        <div class="container">
+            <h1 class="text-primary text-center">Bootstrap 5</h1>
+            <h2>斷點</h2>
+            <ul>
+                <li>xs預設</li>
+                <li>sm</li>
+                <li>md</li>
+                <li>lg</li>
+                <li>xl</li>
+                <li>xxl</li>
+            </ul>
+            <h2>容器類</h2>
+            <ul>
+                <li>.container 每一個響應式斷點都會設置一個 max-width。</li>
+                <li>.container-fluid 所有斷點都是 width: 100%。</li>
+            </ul>
+
+            <h2>網格</h2>
+            <p>Bootstrap 提供了一套響應式、移動設備優先的流動式網格系統,系統會自動分為最多12 列。我們可以根據自己的需要,定義列數:</p>
+
+            <div class="row">
+                <div class="col-3 col-md-6" style="background-color: bisque;">a</div>
+                <div class="col-3 col-md-6" style="background-color: rgb(255, 159, 42);">b</div>
+                <div class="col-3 col-md-6" style="background-color: bisque;">c</div>
+                <div class="col-3 col-md-6" style="background-color: rgb(255, 159, 42);">d</div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-xl-6 col-md-3 col-sm-4" style="background-color: bisque;">a</div>
+                <div class="col-xl-6 col-md-3 col-sm-4" style="background-color: rgb(255, 159, 42);">b</div>
+                <div class="col-xl-6 col-md-3 col-sm-4" style="background-color: bisque;">c</div>
+                <div class="col-xl-6 col-md-3 col-sm-4" style="background-color: rgb(255, 159, 42);">d</div>
+            </div>
+
+            <br>
+            <h3>offset</h3>
+            <div class="row">
+                <div class="col-xl-6 offset-xl-0 col-md-3 offset-md-3 col-sm-4 offset-sm-2"
+                    style="background-color: bisque;">a</div>
+                <div class="col-xl-6 col-md-3 col-sm-4" style="background-color: rgb(255, 159, 42);">b</div>
+            </div>
+
+            <br>
+            <h2>間距</h2>
+            <p>Bootstrap5 包括各種簡寫響應式 margin、padding 和間隔的通用類別,用來修改一個元素的外觀,並使用固定格式 {property}{sides}-{size} 命名。</p>
+            <ul>
+                <li>m - 設定 margin 的類別</li>
+                <li>p - 設定 padding 的類別</li>
+            </ul>
+
+            <div class="row">
+                <div class="col-4 p-3 mt-3 bg-primary">內邊距 p-3, 外邊距 mt-3</div>
+                <div class="col-4 p-2 mt-2 bg-warning">內邊距 p-2, 外邊距 mt-2</div>
+                <div class="col-4 px-2 py-2 px-lg-5 mt-5 bg-secondary">內邊距 p-5, 外邊距 mt-5</div>
+            </div>
+
+            <h2>Display</h2>
+            <div class="row">
+                <div class="col-12 display-1 py-2 bg-warning text-center">
+                    字會變更大
+                </div>
+            </div>
+
+            <br>
+
+            <div class="table-responsive-sm">
+                <table class="table table-striped border-info">
+                    <tr>
+                        <td class="text-nowrap">aaaaaaaa-0000000</td>
+                        <td class="text-nowrap">bbbbbbbb-0000000</td>
+                        <td class="text-nowrap">cccccccc-0000000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-nowrap">dddddddd-0000000</td>
+                        <td class="text-nowrap">eeeeeeee-0000000</td>
+                        <td class="text-nowrap">ffffffff-0000000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-nowrap">gggggggg-0000000</td>
+                        <td class="text-nowrap">hhhhhhhh-0000000</td>
+                        <td class="text-nowrap">iiiiiiii-0000000</td>
+                    </tr>
+                </table>
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <div class="col-md-3"><img class="img-fluid rounded-circle" src="https://picsum.photos/800/600" alt="Placeholder Image"></div>
+                <div class="col-md-3"><img class="img-fluid rounded-5" src="https://picsum.photos/801/600" alt="Placeholder Image"></div>
+                <div class="col-md-3"><img class="img-fluid" src="https://picsum.photos/802/600" alt="Placeholder Image"></div>
+                <div class="col-md-3"><img class="img-fluid" src="https://picsum.photos/803/600" alt="Placeholder Image"></div>
+            </div>
+
+            <br><br>
+
+            <div class="row py-2">
+                <div class="col-md-6 bg-secondary">
+                    <img class="float-end my-2" src="https://picsum.photos/200/200" alt="Placeholder Image">
+                </div>
+            </div>
+
+            <br><br>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
