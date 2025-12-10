@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <style>
+        header {
+            background-image: url(images/bg-1.webp);
+            height: 600px;
+            background-position: center center;
+        }
+
+        .navbar {
+            /* !important影響層級 */
+            background-color: transparent !important;
+        }
+
+        .navbar a {
+            color: white !important;
+        }
+
+        #h1 {
+            height: 220px;
+        }
+
+        .navbar-scrolled {
+            background-color: rgba(0, 0, 0, 0.6) !important;
+            /* 深色 50% */
+            backdrop-filter: blur(4px);
+            /* 可選：有霧面質感 */
+        }
+    </style>
+
+</head>
+
+<body>
+    <header style="padding: 60px;">
+        <!-- place navbar here -->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-light fixed-top">
+            <div class="container-lg">
+                <a class="navbar-brand" href="#">Tina Huang</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s1">個人簡介</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s2">求學和工作</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s3">專業技能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s4">服務項目</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s5">精選作品</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#s6">聯絡我</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <p class="text-center mt-5">
+            <img class="rounded-circle" id="h1" src="images/1.png" alt="">
+        </p>
+        <h1 class="text-center text-light my-5">Tina Huang</h1>
+        <p class="text-center text-light">xxxxxxxxxxxxxxxxxxxxxxxx</p>
+    </header>
+
+
+    <main>
+        <!-- 自我介紹 -->
+        <section id="s1">
+            <div class="container-lg py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>我的簡介</h2>
+                        <p>xxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="images/1.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <h3>基本訊息</h3>
+                        <p>Hello, This is Tina.</p>
+                        <p>I am a designer with experience across product development, user experience, and concept
+                            exploration.
+
+                            My work focuses on connecting design logic with practical engineering constraints, ensuring
+                            that each project balances usability, aesthetics, and feasibility.
+                            I enjoy transforming abstract ideas into clear, structured solutions that can be
+                            communicated effectively through visual and written narratives.
+
+                            I am always motivated to learn new tools, expand my technical skills, and collaborate with
+                            cross-functional teams to create meaningful products.
+                            Thank you for taking the time to learn a bit about me.</p>
+                        <div class="row">
+                            <div class="col-md-6 border-bottom py-2">
+                                姓　　名：黃詩庭
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                出生日期：1996/00/00
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                畢業學校：Coventry University
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                專業科系：Industrial Design
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                手　　機：0986-002-149
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                電子信箱：rain0986002@gmail.com
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                籍　　貫：台北市
+                            </div>
+                            <div class="col-md-6 border-bottom py-2">
+                                現居城市：新北市
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 經歷 -->
+        <section id="s2" style="background-color: antiquewhite;">
+            <div class="container-lg py-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2>求學與工作經歷</h2>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="mb-2 mt-4 text-center text-md-start">求學經歷</h3>
+                        <div class="box bg-light py-4">
+                            <div class="row">
+                                <div class="col-md-4 text-center text-warning">
+                                    2016-2019
+                                </div>
+                                <div class="col-md-8 text-center text-md-start">
+                                    <h4>大同大學</h4>
+                                    <p>工業設計學系</p>
+                                </div>
+
+                                <div class="col-md-4 text-center text-warning">
+                                    2019-2020
+                                </div>
+                                <div class="col-md-8 text-center text-md-start">
+                                    <h4>Coventry</h4>
+                                    <p>工業設計學系</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h3 class="mb-2 mt-4 text-center text-md-start">工作經歷</h3>
+                        <div class="box bg-light py-4">
+                            <div class="row">
+                                <div class="col-md-4 text-center text-warning">
+                                    2021-2024
+                                </div>
+                                <div class="col-md-8 text-center text-md-start">
+                                    <h4>Goertek</h4>
+                                    <p>創意設計部門</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section id="s3">
+            <div class="container-lg py-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>專業技能</h2>
+                        <p>I specialize in product design with strengths in user experience research, concept
+                            development, and cross-functional collaboration. My skills include creating clear design
+                            documentation, building 3D models for validation, and translating complex requirements into
+                            practical, well-structured solutions.</p>
+                        <div class="row pb-sm-1">
+                            <div class="col-6">HTML</div>
+                            <div class="col-6 text-end">25%</div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pb-sm-1">
+                            <div class="col-6">CSS</div>
+                            <div class="col-6 text-end">25%</div>
+                            <div class="col-12">
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 25%;"
+                                        aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/web-design.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服務 -->
+        <section id="s4" style="background-color: antiquewhite;">
+            <div class="container-lg py-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="mb-4">我可以提供的服務</h2>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="box bg-light p-4">
+                            <img style="width: 100px; height: 100px;" src="images/icon-1.svg" alt="">
+                            <h3 class="py-4">網站開發製作</h3>
+                            <p>xxxxxxxxxxxxxxxxxxxxxxxxx, xxxxxxxxxxxxxxxxxxxxxxx</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="box bg-light p-4">
+                            <img style="width: 100px; height: 100px;" src="images/icon-2.svg" alt="">
+                            <h3 class="py-4">網站開發製作</h3>
+                            <p>xxxxxxxxxxxxxxxxxxxxxxxxx, xxxxxxxxxxxxxxxxxxxxxxx</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="box bg-light p-4">
+                            <img style="width: 100px; height: 100px;" src="images/icon-3.svg" alt="">
+                            <h3 class="py-4">網站開發製作</h3>
+                            <p>xxxxxxxxxxxxxxxxxxxxxxxxx, xxxxxxxxxxxxxxxxxxxxxxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品 -->
+        <section class="s5">
+            <div class="container-lg">
+                <div class="row g-0">
+                    <div class="col-12">
+                        <h2 class="pb-4 text-center">我的作品</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/web-1.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/web-2.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/web-3.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/web-4.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/web-5.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/web-6.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 聯絡我 -->
+        <section id="s6" style="background-color: antiquewhite;">
+            <div class="container-lg py-5">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="pb-4">聯絡我</h2>
+                    </div>
+                    <form class="bg-light p-5" action="#" method="post">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>很期待您的來信</h3>
+                                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input class="form-control" type="text" name="username" id="username" placeholder="姓名" required>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input class="form-control" type="email" name="email" id="email" placeholder="電子郵件" required>
+
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <textarea class="form-control" name="content" id="content" placeholder="內容" required></textarea>
+
+                            </div>
+                            <div class="col-12 text-end">
+                                <input class="btn btn-warning" type="submit" value="提交">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <!-- place footer here -->
+         <div class="container-lg bg-dark pt-5 pb-2 text-center text-light">
+            <h2>Tina Huang</h2>
+            <hr>
+            <p class="my-0">&copy; 2025 Copyright all right reserved.</p>
+         </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
