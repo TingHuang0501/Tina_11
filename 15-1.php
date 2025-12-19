@@ -1,27 +1,35 @@
 <?php
-if(empty($_GET['id'])){
-    echo '查無資料';
-    exit;
-}else{
-    $id = $_GET['id'];
-}
-$host = 'localhost';     // 主機位址
-$db = 'Tina_11';         // 資料庫名稱
-$db_user = 'Tina_11';    // 帳號
-$db_pw = '0000';         // 密碼
+    // 啟動 session 功能
+    session_start();
 
-// 設定連線字串
-$conn = mysqli_connect($host, $db_user, $db_pw, $db);
+    // 判斷 session 是否存在
+    if(empty($_SESSION['user'])){
+        header('loaction: login.php');
+    }
+    
+    if(empty($_GET['id'])){
+        echo '查無資料';
+        exit;
+    }else{
+        $id = $_GET['id'];
+    }
+    $host = 'localhost';     // 主機位址
+    $db = 'Tina_11';         // 資料庫名稱
+    $db_user = 'Tina_11';    // 帳號
+    $db_pw = '0000';         // 密碼
 
-// 檢視連線結果
-//    echo var_dump($conn);
+    // 設定連線字串
+    $conn = mysqli_connect($host, $db_user, $db_pw, $db);
 
-if ($conn) {
-    // 設定 SQL 查詢指令，並指定 news_id  
-    $sql = 'SELECT * FROM news WHERE news_id = '.$id;
-    // 向資料庫下指令並取回資料
-    $data = mysqli_query($conn, $sql);
-}
+    // 檢視連線結果
+    //    echo var_dump($conn);
+
+    if ($conn) {
+        // 設定 SQL 查詢指令，並指定 news_id  
+        $sql = 'SELECT * FROM news WHERE news_id = '.$id;
+        // 向資料庫下指令並取回資料
+        $data = mysqli_query($conn, $sql);
+    }
 ?>
 
 <!doctype html>
@@ -50,14 +58,15 @@ if ($conn) {
                 <div class="col-12">
                     
                         <?php
+                        // 先判斷是否有資料
                         if (mysqli_num_rows($data) > 0) {
                             // 將資料表的內容 一筆筆抓到 $row 中
                             while ($row = mysqli_fetch_assoc($data)) {
                                 echo '<h1>'.$row['news_title'].'</h1>';
                                 echo '<p>撰稿人：'.$row['news_author'].'</p>';
                                 echo '<p>日期 ：'.$row['news_created'].'</p>';
-                                echo '<p><img class="img-fluid" src="upload/'.$row['news_img'].'" alt=""></p>';
-                                echo '<p>'.$row['news_content'].'</p>';
+                                echo '<p><img class="img-fluid" src="upload/news/'.$row['news_img'].'" alt=""></p>';
+                                echo '<p>'.nl2br($row['news_content']).'</p>';  // nl2br($str)函數將 \n 自動轉為 <br>
                             }
                         }
                         ?>

@@ -1,21 +1,30 @@
 <?php
-$host = 'localhost';     // 主機位址
-$db = 'Tina_11';         // 資料庫名稱
-$db_user = 'Tina_11';    // 帳號
-$db_pw = '0000';         // 密碼
+    // 啟動 session 功能
+    session_start();
 
-// 設定連線字串
-$conn = mysqli_connect($host, $db_user, $db_pw, $db);
+    // 判斷 session 是否存在
+    if(empty($_SESSION['user'])){
+        header('loaction: login.php');
+    }
 
-// 檢視連線結果
-//    echo var_dump($conn);
 
-if ($conn) {
-    // 設定 SQL 查詢指令
-    $sql = 'SELECT * FROM news';
-    // 向資料庫下指令並取回資料
-    $data = mysqli_query($conn, $sql);
-}
+    $host = 'localhost';     // 主機位址
+    $db = 'Tina_11';         // 資料庫名稱
+    $db_user = 'Tina_11';    // 帳號
+    $db_pw = '0000';         // 密碼
+
+    // 設定連線字串
+    $conn = mysqli_connect($host, $db_user, $db_pw, $db);
+
+    // 檢視連線結果
+    //    echo var_dump($conn);
+
+    if ($conn) {
+        // 設定 SQL 查詢指令
+        $sql = 'SELECT * FROM news';
+        // 向資料庫下指令並取回資料
+        $data = mysqli_query($conn, $sql);
+    }
 ?>
 
 <!doctype html>
@@ -46,6 +55,9 @@ if ($conn) {
     <main>
         <div class="container py-5">
             <div class="row">
+                <div class="col-12 text-end pb-3">
+                    <a href="16.php" class="btn btn-info">新增</a>
+                </div>
                 <div class="col-12">
                     <table class="table table-bordered">
                         <tr>
@@ -64,12 +76,13 @@ if ($conn) {
                                 echo '<tr>';
                                 echo '<td>'.$row['news_id'].'</td>';
                                 echo '<td><a href="15-1.php?id='.$row['news_id'].'">'.$row['news_title'].'</a></td>';
-                                echo '<td><img class="img-fluid" src="upload/'. $row['news_img'].'" alt=""></td>';
+                                echo '<td><img class="img-fluid" src="upload/news/'. $row['news_img'].'" alt=""></td>';
                                 
                                 // echo '<td>'.$row['news_content'].'</td>';
                                 echo '<td>'.$row['news_created'].'</td>';
                                 echo '<td>'.$row['news_author'].'</td>';
-                                echo '<td><a href="16-1.php?id='.$row['news_id'].'" class="btn btn-info">編輯</a></td>';
+                                echo '<td><a href="16-2.php?id='.$row['news_id'].'" class="btn btn-info btn-sm">編輯</a>';
+                                echo '<btn onclick="del('.$row['news_id'].',\''.$row['news_title'].'\')" class="btn btn-danger btn-sm">刪除</btn></td>';
                                 echo '</tr>';
                             }
                         }
@@ -79,6 +92,7 @@ if ($conn) {
             </div>
         </div>
     </main>
+
     <footer>
         <!-- place footer here -->
     </footer>
@@ -92,6 +106,16 @@ if ($conn) {
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
+    <script>
+        function del(id, title) {
+            // 顯示確認視窗
+            if(confirm("您確定要刪除「"+title+"」這則新聞嗎？")){
+                // 指定轉址
+                window.location.href = '17-2.php?id='+id;
+            }
+        }
+    </script>
 </body>
 
 </html>
