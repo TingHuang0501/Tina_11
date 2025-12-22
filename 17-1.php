@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     if(empty($_GET['id'])){
         echo '查無資料';
         exit;

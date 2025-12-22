@@ -1,4 +1,7 @@
 <?php
+    session_start();
+
+
     if(!empty($_POST['account'])){
         $account = $_POST['account'];
     }
@@ -27,12 +30,24 @@
         if(mysqli_num_rows($data)>0){
             $row = mysqli_fetch_assoc($data);
             if(password_verify($pw, $row['admin_pw'])){
-                echo '登入成功';
+                // echo '登入成功';
+                $_SESSION['admin_name'] = $row['admin_name'];
+                $_SESSION['admin_account'] = $row['admin_account'];
+                // echo $_SESSION['admin_name'];
+                // echo '<br>';
+                // echo $_SESSION['admin_account'];
+
+                // 登入成功後回到管理頁
+                header('location: 15.php');
             }else{
                 echo '登入錯誤，請檢查密碼';
+                // 登入錯誤時, 清空 session
+                session_destroy();
             }
         }else{
             echo '查無此帳號';
+            // 登入錯誤時, 清空 session
+            session_destroy();
         }
     }
 ?>

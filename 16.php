@@ -3,9 +3,10 @@
     session_start();
 
     // 判斷 session 是否存在
-    if(empty($_SESSION['user'])){
-        header('loaction: login.php');
+    if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
+        header('location: login.php');
     }
+
 
 ?>
 
@@ -13,6 +14,7 @@
 <html lang="en">
 
 <head>
+    <?php include_once('navbar.php') ?>
     <title>新聞發布</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />

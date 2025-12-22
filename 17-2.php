@@ -3,8 +3,8 @@
     session_start();
 
     // 判斷 session 是否存在
-    if(empty($_SESSION['user'])){
-        header('loaction: login.php');
+    if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
+        header('location: login.php');
     }
 
     if(!empty($_GET['id'])){

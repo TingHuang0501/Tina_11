@@ -4,7 +4,7 @@
 
     // 判斷 session 是否存在
     if(empty($_SESSION['user'])){
-        header('loaction: login.php');
+        header('location: login.php');
     }
 
 if (!empty($_GET['id'])) {
@@ -34,6 +34,7 @@ if ($conn) {
 <html lang="en">
 
 <head>
+    <?php include_once('navbar.php') ?>
     <title>新聞編輯</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />

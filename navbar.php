@@ -20,7 +20,28 @@
                     <li class="nav-item">
                         <a class="nav-link" href="17.php">最新消息</a>
                     </li>
+                    <?php
+                    // 判斷 session 是否存在, 若存在則顯示管理功能
+                    if (!empty($_SESSION['admin_name']) and !empty($_SESSION['admin_account'])) {
+                      echo  '<li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="dropdownId"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false">'.$_SESSION['admin_name'].'</a>
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" href="15.php">新聞管理</a>
+                                    <a class="dropdown-item" href="#">產品管理</a>
+                                    <a class="dropdown-item" href="logout.php">登出</a>
+                                </div>
+                              </li>';
+                    }
 
+                    ?>
                 </ul>
             </div>
         </div>

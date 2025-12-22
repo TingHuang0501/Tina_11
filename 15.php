@@ -3,8 +3,9 @@
     session_start();
 
     // 判斷 session 是否存在
-    if(empty($_SESSION['user'])){
-        header('loaction: login.php');
+    if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
+        header('location: login.php');
+        // echo "<script>alert('test')</script>";
     }
 
 
@@ -48,8 +49,10 @@
 
 <body>
     <header>
+        <?php include_once('navbar.php') ?>
         <div class="container py-5">
             <h1>新聞管理</h1>
+            <p><?= $_SESSION['admin_account'] ?></p>
         </div>
     </header>
     <main>

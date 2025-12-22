@@ -1,21 +1,24 @@
 <?php
-$host = 'localhost';     // 主機位址
-$db = 'Tina_11';         // 資料庫名稱
-$db_user = 'Tina_11';    // 帳號
-$db_pw = '0000';         // 密碼
+    // 啟動 session 功能
+        session_start();
+        
+    $host = 'localhost';     // 主機位址
+    $db = 'Tina_11';         // 資料庫名稱
+    $db_user = 'Tina_11';    // 帳號
+    $db_pw = '0000';         // 密碼
 
-// 設定連線字串
-$conn = mysqli_connect($host, $db_user, $db_pw, $db);
+    // 設定連線字串
+    $conn = mysqli_connect($host, $db_user, $db_pw, $db);
 
-// 檢視連線結果
-//    echo var_dump($conn);
+    // 檢視連線結果
+    //    echo var_dump($conn);
 
-if ($conn) {
-    // 設定 SQL 查詢指令
-    $sql = 'SELECT * FROM news';
-    // 向資料庫下指令並取回資料
-    $data = mysqli_query($conn, $sql);
-}
+    if ($conn) {
+        // 設定 SQL 查詢指令
+        $sql = 'SELECT * FROM news';
+        // 向資料庫下指令並取回資料
+        $data = mysqli_query($conn, $sql);
+    }
 ?>
 
 <!doctype html>
