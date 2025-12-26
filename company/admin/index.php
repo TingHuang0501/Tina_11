@@ -113,7 +113,7 @@
             // 顯示確認視窗
             if(confirm("您確定要刪除「"+title+"」這則新聞嗎？")){
                 // 指定轉址
-                window.location.href = '17-2.php?id='+id;
+                window.location.href = 'news_del.php?id='+id;
             }
         }
     </script>

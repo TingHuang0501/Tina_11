@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <div w3-include-html="navbar.html"></div>
+    </header>
+    <main>
+        <section id="news" class="py-5">
+            <div class="container">
+                <div class="row" id="news_list">
+                    <!-- 使用flex系統 將卡片高度都設齊高 -->
+                    <div class="col-md-4 d-flex mb-5">
+                        <div class="card flex-fill">
+                            <a href="news_content.html?id=1">
+                                <div class="ratio ratio-16x9">
+                                    <img class="card-img-top" src="upload/news/176532734059189_P33717277.webp"
+                                        alt="Title" />
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">2025-12-24</p>
+                                <h4 class="card-title">title</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <nav aria-label="Page navigation" class="d-flex justify-content-center mt-5">
+                    <ul class="pagination" id="page">
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=1">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=2">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=3">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=4">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=5">5</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=6">6</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="news.html?p=7">7</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark">
+        <div w3-include-html="footer.html"></div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // 引入外部檔案所必須使用的函數
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+        // 開始引入外部檔案
+        includeHTML();
+    </script>
+
+    <!-- 引入 JQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(function () {
+            // 取得網址上的所有參數
+            var params = new URLSearchParams(window.location.search);
+
+            var p = params.get('p') == undefined ? 1 : params.get('p');
+            // 開始讀取 API
+            $.ajax({
+                url: 'api/news_list.php?p=' + p,
+                method: 'GET',
+                dataType: 'json'
+            }).done(function (json) {
+                // 建立內容變數 html
+                var html = '';
+
+                if (json.msg == 'success') {
+                    json.data.forEach(function (item) {
+                        let id = item.id;
+                        let title = item.title;
+                        let img = item.img;
+                        // let content = item.content;
+                        let date = item.date;
+                        // let poster = item.poster;
+                        // 將抓到的資料寫進 html 變數中
+                        html += `
+                            <div class="col-md-4 d-flex mb-5">
+                                <div class="card flex-fill">
+                                    <a href="news_content.html?id=${id}">
+                                        <div class="ratio ratio-16x9">
+                                            <img class="card-img-top" src="upload/news/${img}" alt="Title" />
+                                        </div>
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="card-text">${date}</p>
+                                        <h4 class="card-title">${title}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    $('#news_list').html(html);
+                }
+            })
+            // 開始讀取分頁 API
+            $.ajax({
+                url: 'api/news_page.php',
+                method: 'GET',
+                dataType: 'json'
+            }).done(function (json) {
+                // 建立內容變數 html
+                var html = '';
+
+                if (json.msg == 'success') {
+                    var p1 = p - 5;
+                    if (p1 < 1) p1 = 1;
+                    var p2 = parseInt(p) + 5;  // 顯示目前頁碼的後5頁，parseInt() 將字串轉為數字
+                    if (p2 > json.data) p2 = json.data;
+
+                    // 第一頁按鈕
+                    html += `
+                           <li class="page-item">
+                            <a class="page-link" href="news.html?p=1" aria-label="Previous">
+                                <span aria-hidden="true">最前頁</span>
+                            </a>
+                           </li>
+                        `;
+
+                    var active = '';
+                    for (let i = p1; i <= p2; i++) {
+                        if (i == p) {
+                            active = ' active';
+                        } else {
+                            active = '';
+                        }
+
+                        html += `
+                           <li class="page-item">
+                                <a class="page-link${active}" href="news.html?p=${i}">${i}</a>
+                            </li> 
+                        `;
+                    }
+
+                    // 最後頁按鈕
+                    html += `
+                           <li class="page-item">
+                            <a class="page-link" href="news.html?p=${json.data}" aria-label="Next">
+                                <span aria-hidden="true">最終頁</span>
+                            </a>
+                           </li>
+                        `;
+
+                    $('#page').html(html);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

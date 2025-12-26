@@ -38,7 +38,7 @@
                 // echo $_SESSION['admin_account'];
 
                 // 登入成功後回到管理頁
-                header('location: admin/index.php');
+                header('location: admin/news.php');
             }else{
                 echo '登入錯誤，請檢查密碼';
                 // 登入錯誤時, 清空 session

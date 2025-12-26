@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>新聞管理</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous" />
+</head>
+
+<body>
+    <head>
+        <div w3-include-html="navbar.html"></div>
+    </head>
+    <main>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-12" id="news_content">
+                        <h1>title</h1>
+                        <p class="mb-0">撰稿人：Tina</p>
+                        <p>日期：2025-12-26</p>
+                        <p><img class="img-fluid" src="upload/news/20251215213647.png" alt=""></p>
+                        <p>content</p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark">
+        <div w3-include-html="footer.html"></div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script>
+        // 引入外部檔案所必須使用的函數
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+        // 開始引入外部檔案
+        includeHTML();
+    </script>
+    <!-- 引入 JQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+        </script>
+    <script>
+        $(function () {
+            // 取得網址上的所有參數
+            var params = new URLSearchParams(window.location.search);
+            // 取得 id 參數
+            var id = params.get('id');
+            // 開始讀取 API
+            $.ajax({
+                url: 'api/news_content.php?id='+id,
+                method: 'GET',
+                dataType: 'json'
+            }).done(function (json) {
+                // 建立內容變數 html
+                var html = '';
+
+                if (json.msg == 'success') {
+                    json.data.forEach(function (item) {
+                        let id = item.id;
+                        let title = item.title;
+                        let img = item.img;
+                        let content = item.content.replace(/\r?\n/g,'<br>');
+                        let date = item.date;
+                        let poster = item.poster;
+                        // 將抓到的資料寫進 html 變數中
+                        html += `
+                            <h1>${title}</h1>
+                            <p class="mb-0">撰稿人：${poster}</p>
+                            <p>日期：${date}</p>
+                            <p><img class="img-fluid" src="upload/news/${img}" alt=""></p>
+                            <p class="h5">${content}</p>
+                        `;
+                    });
+                    $('#news_content').html(html);
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

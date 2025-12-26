@@ -1,5 +1,5 @@
 <?php
-    // 啟動 session 功能
+    // 引入設定檔
     include_once('include/config.php');
         
     $host = 'localhost';     // 主機位址
@@ -46,7 +46,7 @@
 
     </header>
     <main>
-        <section id="news">
+        <section id="news" class="mt-5">
             <div class="container">
                 <div class="row">
                     <?php
@@ -54,7 +54,7 @@
                         // 將資料表的內容 一筆筆抓到 $row 中
                         while ($row = mysqli_fetch_assoc($data)) {
                     ?>
-                            <div class="col-md-4 d-flex mt-5 mb-2">
+                            <div class="col-md-4 d-flex mb-5">
                                 <div class="card flex-fill">
                                     <a href="news_content.php?id=<?= $row['news_id'] ?>">
                                         <div class="ratio ratio-16x9">

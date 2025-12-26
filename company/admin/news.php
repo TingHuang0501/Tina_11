@@ -82,7 +82,8 @@
                                 // echo '<td>'.$row['news_content'].'</td>';
                                 echo '<td>'.$row['news_created'].'</td>';
                                 echo '<td>'.$row['news_author'].'</td>';
-                                echo '<td><a href="16-2.php?id='.$row['news_id'].'" class="btn btn-info btn-sm">編輯</a>';
+                                echo '<td><a href="news_edit.php?id='.$row['news_id'].'" class="btn btn-info btn-sm">編輯</a>';
+
                                 echo '<btn onclick="del('.$row['news_id'].',\''.$row['news_title'].'\')" class="btn btn-danger btn-sm">刪除</btn></td>';
                                 echo '</tr>';
                             }
@@ -113,7 +114,7 @@
             // 顯示確認視窗
             if(confirm("您確定要刪除「"+title+"」這則新聞嗎？")){
                 // 指定轉址
-                window.location.href = '17-2.php?id='+id;
+                window.location.href = 'news_del.php?id='+id;
             }
         }
     </script>

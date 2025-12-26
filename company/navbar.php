@@ -14,10 +14,10 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="<?= URL ?>index.php" aria-current="page">首頁</a>
+                        <a class="nav-link active" href="<?= URL ?>index.html" aria-current="page">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= URL ?>news.php">最新消息</a>
+                        <a class="nav-link" href="<?= URL ?>news.html">最新消息</a>
                     </li>
                     <?php
                     // 判斷 session 是否存在, 若存在則顯示管理功能
