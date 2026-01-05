@@ -39,7 +39,7 @@
                                     aria-labelledby="dropdownId">
                                     <a class="dropdown-item" href="'.URL.'admin/news.php">管理後台</a>
                                     <a class="dropdown-item" href="'.URL.'admin/product.php">產品管理</a>
-                                    <a class="dropdown-item" href="'.URL.'logout.php">登出</a>
+                                    <a class="dropdown-item" href="'.URL.'admin/logout.php">登出</a>
                                 </div>
                               </li>';
                     }
