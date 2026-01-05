@@ -21,7 +21,7 @@
 
     if ($conn) {
         // 設定 SQL 查詢指令
-        $sql = 'SELECT * FROM news';
+        $sql = 'SELECT * FROM product_type';
         // 向資料庫下指令並取回資料
         $data = mysqli_query($conn, $sql);
     }
@@ -31,7 +31,7 @@
 <html lang="en">
 
 <head>
-    <title>管理後台</title>
+    <title>產品類型管理</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -50,24 +50,22 @@
     <header>
         <?php include_once('navbar.php') ?>
         <div class="container py-5">
-            <h1>後台管理</h1>
+            <h1>產品類型管理</h1>
         </div>
     </header>
     <main>
         <div class="container py-5">
             <div class="row">
                 <div class="col-12 text-end pb-3">
-                    <a href="news_post.php" class="btn btn-info">新增</a>
+                    <a href="product_type_post.php" class="btn btn-info">新增</a>
+                    <a href="product.php" class="btn btn-success">產品管理</a>
                 </div>
                 <div class="col-12">
                     <table class="table table-bordered">
                         <tr>
                             <th>編號</th>
-                            <th>新聞標題</th>
-                            <th width="100">焦點圖片</th>
-                            <!-- <th>新聞內容</th> -->
-                            <th>新聞日期</th>
-                            <th>發佈人</th>
+                            <th>產品類別名稱</th>
+                            <th>功能</th>
                         </tr>
 
                         <?php
@@ -75,15 +73,9 @@
                             // 將資料表的內容 一筆筆抓到 $row 中
                             while ($row = mysqli_fetch_assoc($data)) {
                                 echo '<tr>';
-                                echo '<td>'.$row['news_id'].'</td>';
-                                echo '<td><a href="15-1.php?id='.$row['news_id'].'">'.$row['news_title'].'</a></td>';
-                                echo '<td><img class="img-fluid" src="upload/news/'. $row['news_img'].'" alt=""></td>';
-                                
-                                // echo '<td>'.$row['news_content'].'</td>';
-                                echo '<td>'.$row['news_created'].'</td>';
-                                echo '<td>'.$row['news_author'].'</td>';
-                                echo '<td><a href="16-2.php?id='.$row['news_id'].'" class="btn btn-info btn-sm">編輯</a>';
-                                echo '<btn onclick="del('.$row['news_id'].',\''.$row['news_title'].'\')" class="btn btn-danger btn-sm">刪除</btn></td>';
+                                echo '<td>'.$row['product_type_id'].'</td>';
+                                echo '<td>'.$row['product_type'].'">'.$row['product_type'].'</td>';
+                                echo '<td><a href="product_type_edit.php?id='.$row['product_type_id'].'" class="btn btn-info btn-sm">編輯</a>';
                                 echo '</tr>';
                             }
                         }
@@ -108,15 +100,6 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
-    <script>
-        function del(id, title) {
-            // 顯示確認視窗
-            if(confirm("您確定要刪除「"+title+"」這則新聞嗎？")){
-                // 指定轉址
-                window.location.href = 'news_del.php?id='+id;
-            }
-        }
-    </script>
 </body>
 
 </html>

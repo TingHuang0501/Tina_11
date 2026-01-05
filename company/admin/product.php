@@ -3,7 +3,7 @@
 
     // 判斷 session 是否存在
     if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
-        header('location: '.URL.'login.php');
+        header('location: login.php');
         // echo "<script>alert('test')</script>";
     }
 
@@ -48,7 +48,7 @@
 
 <body>
     <header>
-        <?php include_once(dirname(__DIR__).'/navbar.php') ?>
+        <?php include_once('navbar.php') ?>
         <div class="container py-5">
             <h1>產品管理</h1>
         </div>
@@ -58,6 +58,7 @@
             <div class="row">
                 <div class="col-12 text-end pb-3">
                     <a href="product_post.php" class="btn btn-info">新增</a>
+                    <a href="product_type.php" class="btn btn-success">產品類型管理</a>
                 </div>
                 <div class="col-12">
                     <table class="table table-bordered">
@@ -80,7 +81,7 @@
                                 echo '<td>'.$row['product_id'].'</td>';
                                 echo '<td>'.$row['product_sn'].'</td>';
                                 
-                                echo '<td><a href="../product_content.php?id='.$row['product_id'].'">'
+                                echo '<td><a href="../product_content.html?id='.$row['product_id'].'">'
                                 .$row['product_name'].'</a></td>';
                                 echo '<td><img class="img-fluid" src="../upload/product/'. $row['product_img'].'" alt=""></td>';
                                 

@@ -1,13 +1,21 @@
-<?php
-    // 引入設定檔
-    include_once('../include/config.php'); 
+<?php 
+    //引入設定檔
+    include_once('../include/config.php');
+
+    // 判斷 session 是否存在
+    if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
+        header('location: login.php');
+    }
+
+
 ?>
 
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    
+    <title>新增產品類型</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -25,20 +33,32 @@
 <body>
     <header>
         <?php include_once('navbar.php') ?>
-
+        <div class="container py-5">
+            <h1>新增產品類型</h1>
+        </div>
     </header>
     <main>
-        <section id="news">
-            <div class="container py-5">
+        <div class="container py-5">
+            <form action="product_type_insert.php" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    我是首頁~
+                    <div class="col-md-2 mb-3 pt-1 text-end">
+                        產品類型名稱
+                    </div>
+                    <div class="col-md-10 mb-3">
+                        <input type="text" class="form-control" name="product_type" id="" required>
+                    </div>
                 </div>
-            </div>
-        </section>
+                
+                <div class="row">
+                    <div class="col-12 text-end">
+                        <input type="submit" class="btn btn-success" value="新增類型">
+                    </div>
+                </div>
+            </form>
+        </div>
     </main>
-    
-    <footer class="bg-dark">
-        <?php include_once('footer.php') ?>
+    <footer>
+        <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script

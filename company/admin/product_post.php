@@ -3,7 +3,7 @@
 
     // 判斷 session 是否存在
     if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
-        header('location: '.URL.'login.php');
+        header('location: login.php');
         // echo "<script>alert('test')</script>";
     }
 
@@ -46,7 +46,7 @@
 
 <body>
     <header>
-        <?php include_once('../navbar.php') ?>
+        <?php include_once('navbar.php') ?>
         <div class="container py-5">
             <h1>產品發布</h1>
         </div>

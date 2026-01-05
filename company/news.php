@@ -1,6 +1,6 @@
 <?php
     // 引入設定檔
-    include_once('include/config.php');
+    include_once('../include/config.php');
         
     $host = 'localhost';     // 主機位址
     $db = 'Tina_11';         // 資料庫名稱

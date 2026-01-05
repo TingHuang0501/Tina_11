@@ -19,6 +19,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= URL ?>news.html">最新消息</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= URL ?>product.html">網路購物</a>
+                    </li>
+
                     <?php
                     // 判斷 session 是否存在, 若存在則顯示管理功能
                     if (!empty($_SESSION['admin_name']) and !empty($_SESSION['admin_account'])) {

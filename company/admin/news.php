@@ -3,7 +3,7 @@
 
     // 判斷 session 是否存在
     if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){
-        header('location: '.URL.'login.php');
+        header('location: login.php');
         // echo "<script>alert('test')</script>";
     }
 
@@ -48,7 +48,7 @@
 
 <body>
     <header>
-        <?php include_once(dirname(__DIR__).'/navbar.php') ?>
+        <?php include_once('navbar.php') ?>
         <div class="container py-5">
             <h1>新聞管理</h1>
         </div>
@@ -76,7 +76,7 @@
                             while ($row = mysqli_fetch_assoc($data)) {
                                 echo '<tr>';
                                 echo '<td>'.$row['news_id'].'</td>';
-                                echo '<td><a href="../news_content.php?id='.$row['news_id'].'">'.$row['news_title'].'</a></td>';
+                                echo '<td><a href="../news_content.html?id='.$row['news_id'].'">'.$row['news_title'].'</a></td>';
                                 echo '<td><img class="img-fluid" src="../upload/news/'. $row['news_img'].'" alt=""></td>';
                                 
                                 // echo '<td>'.$row['news_content'].'</td>';

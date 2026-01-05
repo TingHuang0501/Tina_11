@@ -1,5 +1,5 @@
 <?php
-    include_once('include/config.php');
+    include_once('../include/config.php');
 
     // 判斷 session 是否存在
     if(empty($_SESSION['admin_name']) or empty($_SESSION['admin_account'])){

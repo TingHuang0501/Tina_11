@@ -32,7 +32,7 @@
 
 <body>
     <header>
-        <?php include_once('../navbar.php') ?>
+        <?php include_once('navbar.php') ?>
         <div class="container py-5">
             <h1>新聞發布</h1>
         </div>

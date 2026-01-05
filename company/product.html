@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 
 <head>
-    <title>Title</title>
+    <title>網路購物</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,49 +17,56 @@
         <div w3-include-html="navbar.html"></div>
     </header>
     <main>
-        <section id="news" class="py-5">
+        <section id="product" class="py-5">
             <div class="container">
-                <div class="row" id="news_list">
-                    <!-- 使用flex系統 將卡片高度都設齊高 -->
-                    <!-- <div class="col-md-4 d-flex mb-5">
-                        <div class="card flex-fill">
-                            <a href="news_content.html?id=1">
-                                <div class="ratio ratio-16x9">
-                                    <img class="card-img-top" src="upload/news/176532734059189_P33717277.webp"
-                                        alt="Title" />
+                <div class="row">
+                    <div class="col-md-2">
+                        <h2 class="mb-3">產品類型</h2>
+                        <div id="product_type_list"></div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row" id="product_list">
+                            <!-- 使用flex系統 將卡片高度都設齊高 -->
+                            <!-- <div class="col-md-3 d-flex mb-5">
+                                <div class="card flex-fill">
+                                    <a href="product_content.html?id=1">
+                                        <div class="ratio ratio-16x9">
+                                            <img class="card-img-top" src="upload/product/176532734059189_P33717277.webp"
+                                                alt="Title" />
+                                        </div>
+                                    </a>
+                                    <div class="card-body">
+                                        <p class="card-text">2025-12-24</p>
+                                        <h4 class="card-title">title</h4>
+                                    </div>
                                 </div>
-                            </a>
-                            <div class="card-body">
-                                <p class="card-text">2025-12-24</p>
-                                <h4 class="card-title">title</h4>
-                            </div>
+                            </div> -->
                         </div>
-                    </div> -->
-
+                    </div>
                 </div>
 
                 <nav aria-label="Page navigation" class="d-flex justify-content-center mt-5">
                     <ul class="pagination" id="page">
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=1">1</a>
+                            <a class="page-link" href="product.html?p=1">1</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=2">2</a>
+                            <a class="page-link" href="product.html?p=2">2</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=3">3</a>
+                            <a class="page-link" href="product.html?p=3">3</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=4">4</a>
+                            <a class="page-link" href="product.html?p=4">4</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=5">5</a>
+                            <a class="page-link" href="product.html?p=5">5</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=6">6</a>
+                            <a class="page-link" href="product.html?p=6">6</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link" href="news.html?p=7">7</a>
+                            <a class="page-link" href="product.html?p=7">7</a>
                         </li>
                     </ul>
                 </nav>
@@ -123,9 +130,34 @@
             var params = new URLSearchParams(window.location.search);
 
             var p = params.get('p') == undefined ? 1 : params.get('p');
-            // 開始讀取 API
+
+            var type = params.get('type') == undefined ? '%' : params.get('type');
+            
+            // 開始讀取 產品分類 API
             $.ajax({
-                url: 'api/news_list.php?p=' + p,
+                url: 'api/product_type_list.php',
+                method: 'GET',
+                dataType: 'json'
+            }).done(function (json) {
+                // 建立內容變數 html
+                var html = '';
+
+                if (json.msg == 'success') {
+                    json.data.forEach(function (item) {
+                        let type_id = item.type_id;
+                        let type = item.type;                        
+                        // 將抓到的資料寫進 html 變數中, 使用 ` 反引號的字串中可直接帶變數
+                        html += `
+                            <p class="mb-2"><a class="text-decoration-none text-dark" href="product.html?type=${type_id}">${type}</a></p>
+                        `;
+                    });
+                    $('#product_type_list').html(html);
+                }
+            })
+            
+            // 開始讀取 產品清單 API
+            $.ajax({
+                url: 'api/product_list.php?p=' + p + '&type=' + type,
                 method: 'GET',
                 dataType: 'json'
             }).done(function (json) {
@@ -135,34 +167,35 @@
                 if (json.msg == 'success') {
                     json.data.forEach(function (item) {
                         let id = item.id;
-                        let title = item.title;
+                        let name = item.name;
                         let img = item.img;
                         // let content = item.content;
-                        let date = item.date;
+                        let price = Number(item.price).toLocaleString(); // 將價格加上千分位逗號
                         // let poster = item.poster;
                         // 將抓到的資料寫進 html 變數中
                         html += `
-                            <div class="col-md-4 d-flex mb-5">
-                                <div class="card flex-fill">
-                                    <a href="news_content.html?id=${id}">
+                            <div class="col-md-3 d-flex mb-5">
+                                <div class="card flex-fill d-flex flex-column">
+                                    <a href="product_content.html?id=${id}">
                                         <div class="ratio ratio-16x9">
-                                            <img class="card-img-top" src="upload/news/${img}" alt="Title" />
+                                            <img class="card-img-top" src="upload/product/${img}" alt="${name}" />
                                         </div>
                                     </a>
-                                    <div class="card-body">
-                                        <p class="card-text">${date}</p>
-                                        <h4 class="card-title">${title}</h4>
+                                    <div class="card-body d-flex flex-column flex-grow-1">
+                                        <h6 class="card-text">${name}</h6>
+                                        <h4 class="card-title text-danger fw-bold mt-auto">NT$ ${price}</h4>
                                     </div>
                                 </div>
                             </div>
                         `;
                     });
-                    $('#news_list').html(html);
+                    $('#product_list').html(html);
                 }
             })
+
             // 開始讀取分頁 API
             $.ajax({
-                url: 'api/news_page.php',
+                url: 'api/product_page.php?type=' + type,
                 method: 'GET',
                 dataType: 'json'
             }).done(function (json) {
@@ -178,7 +211,7 @@
                     // 第一頁按鈕
                     html += `
                            <li class="page-item">
-                            <a class="page-link" href="news.html?p=1" aria-label="Previous">
+                            <a class="page-link" href="product.html?type=${type}&p=1" aria-label="Previous">
                                 <span aria-hidden="true">最前頁</span>
                             </a>
                            </li>
@@ -194,7 +227,7 @@
 
                         html += `
                            <li class="page-item">
-                                <a class="page-link${active}" href="news.html?p=${i}">${i}</a>
+                                <a class="page-link${active}" href="product.html?type=${type}&p=${i}">${i}</a>
                             </li> 
                         `;
                     }
@@ -202,7 +235,7 @@
                     // 最後頁按鈕
                     html += `
                            <li class="page-item">
-                            <a class="page-link" href="news.html?p=${json.data}" aria-label="Next">
+                            <a class="page-link" href="product.html?type=${type}&p=${json.data}" aria-label="Next">
                                 <span aria-hidden="true">最終頁</span>
                             </a>
                            </li>
