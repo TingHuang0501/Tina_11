@@ -51,7 +51,7 @@
         crossorigin="anonymous"></script>
     <script>
         // 引入外部檔案所必須使用的函數
-        function includeHTML() {
+function includeHTML() {
             var z, i, elmnt, file, xhttp;
             /* Loop through a collection of all HTML elements: */
             z = document.getElementsByTagName("*");
@@ -64,7 +64,13 @@
                     xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4) {
-                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            // 載入成功
+                            if (this.status == 200) { 
+                                elmnt.innerHTML = this.responseText;
+                                // 載入完成後，檢查會員狀態並更新選單 
+                                checkMemberStatus();
+                            }
+                            // 載入失敗(404 找不到檔案)
                             if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
                             /* Remove the attribute, and call this function once more: */
                             elmnt.removeAttribute("w3-include-html");
@@ -76,6 +82,25 @@
                     /* Exit the function: */
                     return;
                 }
+            }
+        }
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+        function checkMemberStatus() {
+            var memberName = getCookie('member_name');
+            var memberId = getCookie('member_id');
+            if (memberName) {
+                // 已登入，顯示會員選單
+                $('.member_block').css('display', 'block');
+                $('.member_none').css('display', 'none');
+            } else {
+                // 未登入，顯示非會員選單
+                $('.member_block').css('display', 'none');
+                $('.member_none').css('display', 'block');
             }
         }
         // 開始引入外部檔案

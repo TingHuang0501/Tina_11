@@ -64,7 +64,7 @@
         crossorigin="anonymous"></script>
     <script>
         // 引入外部檔案所必須使用的函數
-        function includeHTML() {
+function includeHTML() {
             var z, i, elmnt, file, xhttp;
             /* Loop through a collection of all HTML elements: */
             z = document.getElementsByTagName("*");
@@ -77,7 +77,13 @@
                     xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4) {
-                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            // 載入成功
+                            if (this.status == 200) { 
+                                elmnt.innerHTML = this.responseText;
+                                // 載入完成後，檢查會員狀態並更新選單 
+                                checkMemberStatus();
+                            }
+                            // 載入失敗(404 找不到檔案)
                             if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
                             /* Remove the attribute, and call this function once more: */
                             elmnt.removeAttribute("w3-include-html");
@@ -89,6 +95,25 @@
                     /* Exit the function: */
                     return;
                 }
+            }
+        }
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+        function checkMemberStatus() {
+            var memberName = getCookie('member_name');
+            var memberId = getCookie('member_id');
+            if (memberName) {
+                // 已登入，顯示會員選單
+                $('.member_block').css('display', 'block');
+                $('.member_none').css('display', 'none');
+            } else {
+                // 未登入，顯示非會員選單
+                $('.member_block').css('display', 'none');
+                $('.member_none').css('display', 'block');
             }
         }
         // 開始引入外部檔案
@@ -134,8 +159,13 @@
             }).done(function(res){
                 if(res.msg == 'success'){
                     showMsg('登入成功','success');
-                    // 若需要導向，可以在這裡導回首頁或會員頁面
-                    // setTimeout(function(){ location.href = 'index.html'; }, 1000);
+                    var days = 7;
+                    var expires = new Date(Date.now() + days * 864e5).toUTCString();
+                        document.cookie = "member_id=" + res.data.id + "; expires=" + expires + "; path=/";
+                        document.cookie = "member_name=" + encodeURIComponent(res.data.name) + "; expires=" + expires + "; path=/";
+
+                        alert('登入成功');
+                        window.history.back();
                 } else {
                     // 顯示後端回傳的錯誤訊息（login.php 回傳在 data）
                     showMsg((res && (res.data || res.message)) ? (res.data || res.message) : '登入失敗','danger');
