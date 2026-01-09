@@ -1,0 +1,12 @@
+<html>
+    <script>
+        // 登出後清除 cookie 並導向首頁
+        function deleteCookie(name) {
+            document.cookie = name + '=; Max-Age=0; path=/; domain=' + location.hostname;
+        }
+        deleteCookie('member_id');
+        deleteCookie('member_name');
+        
+        window.location.href = 'login.html';
+    </script>
+</html>
