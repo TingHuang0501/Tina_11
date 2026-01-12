@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #0b0b0b;
+    color: #fff;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 80px;
+
+    /* 固定navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 80px;
+
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.nav .logo a {
+    color: white;
+    /* 保持白色 */
+    text-decoration: none;
+    /* 移除底線 */
+    font-weight: 600;
+}
+
+.nav .logo a:hover {
+    color: white;
+    /* hover 也不變色 */
+    text-decoration: none;
+}
+
+.nav .menu a {
+    text-decoration: none;
+}
+
+
+section {
+    scroll-margin-top: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu a {
+    color: #fff;
+    margin-left: 30px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    padding-top: 300px;
+    padding-left: 80px;
+    background: radial-gradient(circle, #222, #000);
+}
+
+.hero h1 {
+    font-size: 72px;
+    line-height: 1.1;
+}
+
+.hero p {
+    margin: 20px 0;
+    color: #aaa;
+}
+
+.hero button {
+    padding: 15px 40px;
+    background: white;
+    color: black;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* PROJECTS */
+.projects {
+    padding: 100px 80px;
+    background: #111;
+}
+
+.projects h2 {
+    font-size: 48px;
+    margin-bottom: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    height: 250px;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e3e3e3;
+    font-size: 24px;
+
+    /* 另加上副標題 */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* 標題 */
+.card-title {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+/* 副標（預設隱藏） */
+.card-subtitle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(13, 13, 13, 0.9) 0%, transparent 100%);
+    color: #d1d1d1;
+    font-size: 14px;
+    line-height: 1.6;
+    transform: translateY(100%);
+    transition: 0.35s ease;
+    z-index: 1;
+}
+
+/* Hover 時副標滑出來 */
+.card:hover .card-subtitle {
+    transform: translateY(0);
+    z-index: 1;
+}
+
+/* Hover 時標題往上 */
+.card:hover .card-title {
+    transform: translateY(-50px);
+}
+
+.card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    transition: 0.4s ease;
+    z-index: 0;
+}
+
+/* Hover 時圖片微微放大，產生高級感 */
+.card:hover .card-bg {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+/* 文字一定要在圖片上層 */
+.card-title,
+.card-subtitle {
+    position: absolute;
+    z-index: 2;
+}
+
+
+/* SKILLS */
+.skills {
+    padding: 100px 80px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.skill {
+    flex: 0 0 calc(25% - 30px); /* 一排四個（扣掉 gap） */
+    padding: 40px;
+    background: #222;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* EXPERIENCE */
+.experience {
+    padding: 100px 80px;
+    background: #111;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.stats h3 {
+    font-size: 48px;
+}
+
+/* PRICING */
+.pricing {
+  padding: 100px 80px;
+}
+
+.price-box {
+  background: #222;
+  padding: 60px;
+  width: 400px;
+}
+
+.price {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+
+/* CONTACT */
+.contact {
+    padding: 100px 80px;
+    background: #111;
+}
+
+form {
+    max-width: 500px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #222;
+    border: none;
+    color: white;
+}
+
+button {
+    padding: 15px 40px;
+    border: none;
+    background: white;
+    color: black;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    color: #555;
+}
