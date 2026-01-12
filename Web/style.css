@@ -222,9 +222,15 @@ section {
     font-size: 48px;
 }
 
-/* PRICING */
+/* PRICING SERVICES */
 .pricing {
   padding: 100px 80px;
+}
+
+/* 只控制 price-box 排列 */
+.pricing-row {
+  display: flex;
+  gap: 40px;
 }
 
 .price-box {
@@ -232,6 +238,7 @@ section {
   padding: 60px;
   width: 400px;
 }
+
 
 .price {
   font-size: 48px;
