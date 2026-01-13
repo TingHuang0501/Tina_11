@@ -24,8 +24,8 @@
 
                 <a class="logo navbar-brand text-white" href="#s0">Portfolio</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -47,11 +47,11 @@
         <!-- HERO -->
         <section class="hero" id="s0">
             <h1>Tina Huang<br>Product & UI Designer</h1><br>
-            <h3>Smart Devices &nbsp/&nbsp AR &nbsp/&nbsp Medical &nbsp/&nbsp Wearables</h3>
+            <h3>Smart Devices &nbsp/&nbsp AR &nbsp/&nbsp Medical &nbsp/&nbsp Wearables &nbsp/&nbsp Audio</h3>
             <p>Product ID for Manufacturable Hardware
                 Design under real structural, optical and assembly constraints.</p>
             <br>
-            <a href="#s1" class="btn btn-project">View Projects</a>
+            <a href="project.html" class="btn btn-project">View Projects</a>
         </section>
 
         <!-- PROJECTS -->
@@ -258,13 +258,17 @@
         <!-- CONTACT -->
         <section class="contact" id="s4">
             <h2>Let’s talk.</h2>
-            <form class="mt-4">
-                <input class="form-control mb-3" type="text" placeholder="Name">
-                <input class="form-control mb-3" type="email" placeholder="Email">
-                <textarea class="form-control mb-3" rows="6" placeholder="Message"></textarea>
-                <button class="btn">Send</button>
+            <form id="contact-form" class="mt-4">
+                <input class="form-control mb-3" type="text" name="name" placeholder="Name" required>
+                <input class="form-control mb-3" type="email" name="email" placeholder="Email" required>
+                <textarea class="form-control mb-3" name="message" rows="6" placeholder="Message" required></textarea>
+                <button type="submit" class="btn">Send</button>
             </form>
+            <div id="form-status" class="mt-2"></div>
         </section>
+
+
+
 
         <!-- Project Modal -->
         <div class="modal fade" id="projectModal" tabindex="-1">
@@ -311,31 +315,31 @@
         });
     </script>
 
-    <!-- Fallback: if Bootstrap JS didn't initialize, provide a simple toggler behavior -->
     <script>
-        (function () {
-            if (typeof bootstrap !== 'undefined' && typeof bootstrap.Collapse === 'function') {
-                // Bootstrap available, nothing to do
-                return;
-            }
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzXuBTS6MDn941Pm_W5cE9YfuRVlxJhGK8ZOxKMJylESy45GNv77DRSkxNhXrs1gdw6vQ/exec'; // 換成你部署的 Apps Script URL
 
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelectorAll('.navbar-toggler').forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        var targetSelector = btn.getAttribute('data-bs-target') || btn.getAttribute('data-target');
-                        if (!targetSelector) return;
-                        var target = document.querySelector(targetSelector);
-                        if (!target) return;
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // 防止表單自動跳轉
+            const formData = new FormData(form);
 
-                        var expanded = btn.getAttribute('aria-expanded') === 'true';
-                        btn.setAttribute('aria-expanded', String(!expanded));
-                        target.classList.toggle('show');
-                    });
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        status.innerText = "Thank you! We've received your message and will get in touch with you shortly.";
+                        form.reset();
+                    } else {
+                        status.innerText = "Error sending message: " + JSON.stringify(data);
+                    }
+                })
+                .catch(error => {
+                    status.innerText = "Error sending message: " + JSON.stringify(error);
                 });
-            });
-        })();
+        });
     </script>
 
 </body>
 
-</html> 
+</html>
