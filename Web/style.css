@@ -49,6 +49,31 @@ body {
     text-decoration: none;
 }
 
+/* 漢堡按鈕 */
+/* 基本移除粗白框 */
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 漢堡按鈕 icon 微動畫 */
+.navbar-toggler .navbar-toggler-icon {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* hover 效果：稍微亮一點 */
+.navbar-toggler:hover .navbar-toggler-icon {
+    filter: brightness(1.3);
+}
+
+/* 點擊 active 效果：微旋轉 */
+.navbar-toggler.collapsed:active .navbar-toggler-icon,
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(90deg);
+    filter: brightness(1.2);
+}
+
+
 
 section {
     scroll-margin-top: 20px;
@@ -66,7 +91,7 @@ section {
 }
 
 /* 基礎：把 a 變成真正的 button */
-.btn{
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -76,30 +101,32 @@ section {
     background: #fff;
 
     font-size: 16px;
-    text-decoration: none;   /* 移除底線 */
-    color: #000;             /* 黑字 */
+    text-decoration: none;
+    /* 移除底線 */
+    color: #000;
+    /* 黑字 */
     cursor: pointer;
 
-    transition: 
+    transition:
         background .2s ease,
         color .2s ease,
         transform .1s ease;
 }
 
 /* hover */
-.btn:hover{
+.btn:hover {
     background: #ffcf21;
     color: #000000;
 }
 
 /* active（按下瞬間） */
-.btn:active{
+.btn:active {
     background: #ffc800;
     transform: translateY(2px);
 }
 
 /* focus（鍵盤 tab 進來） */
-.btn:focus-visible{
+.btn:focus-visible {
     outline: 2px solid #666;
     outline-offset: 3px;
 }
@@ -138,10 +165,52 @@ section {
     background: #111;
 }
 
+/* 讓 projects 內的 container 不內縮，與 h2 左對齊 */
+.projects .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 h2 {
     font-size: 48px;
     margin-bottom: 40px;
 }
+
+/* 讓 按鍵的文字成為卡片中心主標 */
+#card-button .label-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #f2f2f2;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* 讓背景在文字下面 */
+#card-button .logo-container {
+    position: relative;
+}
+
+/* 平板 */
+@media (max-width: 992px) {
+    #card-button .label-text {
+        font-size: 28px;
+    }
+}
+
+/* 手機 */
+@media (max-width: 576px) {
+    #card-button .label-text {
+        font-size: 20px;
+        letter-spacing: 0.02em;
+    }
+}
+
 
 .grid {
     display: grid;
@@ -226,6 +295,77 @@ h2 {
 }
 
 
+.card-custom {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    border: none;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    aspect-ratio: 1.2 / 1;
+}
+
+.card-custom:hover {
+    background-color: #252525;
+    transform: translateY(-5px);
+}
+
+.card-large {
+    /* 大卡片佔據 2x2 的空間感，但在 Bootstrap Grid 中我們用 col-8 控制寬度 */
+    aspect-ratio: 1.25 / 1;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo-text {
+    font-size: 1.85rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.label-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 0.8rem;
+    color: #f6f6f6;
+    font-weight: 500;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .card-custom {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+
 /* SKILLS */
 .skills {
     padding: 100px 80px;
@@ -263,25 +403,25 @@ h2 {
 
 /* PRICING SERVICES */
 .pricing {
-  padding: 100px 80px;
+    padding: 100px 80px;
 }
 
 /* 只控制 price-box 排列 */
 .pricing-row {
-  display: flex;
-  gap: 40px;
+    display: flex;
+    gap: 40px;
 }
 
 .price-box {
-  background: #222;
-  padding: 60px;
-  width: 400px;
+    background: #222;
+    padding: 60px;
+    width: 400px;
 }
 
 
 .price {
-  font-size: 48px;
-  margin: 20px 0;
+    font-size: 48px;
+    margin: 20px 0;
 }
 
 
@@ -302,13 +442,13 @@ textarea {
     margin-bottom: 20px;
     background: #222;
     border: none;
-    color: white;
+    color: rgb(170, 170, 170);
 }
 
 button {
     padding: 15px 40px;
     border: none;
-    background: white;
+    background: rgb(187, 187, 187);
     color: black;
 }
 

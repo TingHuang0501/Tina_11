@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Projects</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- NAV -->
+        <nav class="nav navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid px-5">
+
+                <a class="logo navbar-brand text-white" href="index.html">Portfolio</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                    <div class="menu navbar-nav">
+                        <a class="nav-link text-white" href="index.html#s1">Gallery</a>
+                        <a class="nav-link text-white" href="#s2">Skills</a>
+                        <a class="nav-link text-white" href="#s3">Services</a>
+                        <a class="nav-link text-white" href="#s4">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PROJECTS -->
+        <section class="projects" id="s1">
+            <br>
+            <h2>Projects.</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card project-card" data-title="Smart Display" 
+                        data-content="
+                            <img src='images/smart_display.jpg' class='img-fluid mb-4'>
+                            <h4>Medical Smart Display</h4>
+                            <p>
+                            Strategy & component configuration design for a medical-grade smart display,
+                            including structural layout, IO planning, and manufacturable ID.
+                            </p>
+                            <ul>
+                                <li>Used in medical scenario</li>
+                                <li>Worked with structural engineers</li>
+                                <li>Techshow exhibited</li>
+                            </ul>
+                            ">
+                        <div class="card-bg" style="background-image: url('images/smart_display.jpg');"></div>
+                        <div class="card-title">Smart Display</div>
+                        <div class="card-subtitle">
+                            Strategy and component configuration design with structural collaboration
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-bg" style="background-image: url('images/smart_display.jpg');"></div>
+                        <div class="card-title">Smart Display</div>
+                        <div class="card-subtitle">
+                            Strategy and component configuration design with structural collaboration
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-bg" style="background-image: url('images/smart_watch.png');"></div>
+                        <div class="card-title">Smart Watch</div>
+                        <div class="card-subtitle">
+                            Strap replacement design and extended charging usage scenarios
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-bg" style="background-image: url('images/AR_Glasses.png');"></div>
+                        <div class="card-title">AR Glasses</div>
+                        <div class="card-subtitle">
+                            Waveguide-based optical system with adjustable mechanical architecture
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-bg" style="background-image: url('images/smart_ring.png');"></div>
+                        <div class="card-title">Smart Ring</div>
+                        <div class="card-subtitle">
+                            Wearable interaction & ID redesign based on real user testing
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-bg" style="background-image: url('images/car_spk-2.jpg');"></div>
+                        <div class="card-title">Automotive Speaker</div>
+                        <div class="card-subtitle">
+                            Automotive speaker grille and basket design with Grasshopper patterns
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <div class="card-bg" style="background-image: url('images/wizard2.png');"></div>
+                        <div class="card-title">Screened Audio</div>
+                        <div class="card-subtitle">
+                            Visual × auditory overall experience design for music platforms
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Project Modal -->
+        <div class="modal fade" id="projectModal" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title" id="modalTitle">Project</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                        Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <p>© 2026 Tina studio</p>
+    </footer>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".project-card").on("click", function () {
+                let title = $(this).data("title");
+                let content = $(this).data("content");
+
+                $("#modalTitle").text(title);
+                $("#modalBody").html(content);
+
+                let modal = new bootstrap.Modal(document.getElementById('projectModal'));
+                modal.show();
+            });
+
+        });
+    </script>
+
+    <!-- Temporary debug: log clicks on navbar-toggler and bootstrap availability -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.querySelector('.navbar-toggler');
+            console.log('Debug: navbar-toggler element ->', btn);
+            console.log('Debug: bootstrap available ->', typeof bootstrap);
+            if (btn) {
+                btn.addEventListener('click', function (e) {
+                    console.log('Debug: navbar-toggler clicked', e);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
