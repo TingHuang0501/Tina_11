@@ -65,10 +65,50 @@ section {
     text-decoration: none;
 }
 
+/* 基礎：把 a 變成真正的 button */
+.btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 24px;
+    border: 1px solid #000;
+    background: #fff;
+
+    font-size: 16px;
+    text-decoration: none;   /* 移除底線 */
+    color: #000;             /* 黑字 */
+    cursor: pointer;
+
+    transition: 
+        background .2s ease,
+        color .2s ease,
+        transform .1s ease;
+}
+
+/* hover */
+.btn:hover{
+    background: #ffcf21;
+    color: #000000;
+}
+
+/* active（按下瞬間） */
+.btn:active{
+    background: #ffc800;
+    transform: translateY(2px);
+}
+
+/* focus（鍵盤 tab 進來） */
+.btn:focus-visible{
+    outline: 2px solid #666;
+    outline-offset: 3px;
+}
+
+
 /* HERO */
 .hero {
     height: 100vh;
-    padding-top: 300px;
+    padding-top: 270px;
     padding-left: 80px;
     background: radial-gradient(circle, #222, #000);
 }
@@ -98,7 +138,7 @@ section {
     background: #111;
 }
 
-.projects h2 {
+h2 {
     font-size: 48px;
     margin-bottom: 40px;
 }
@@ -199,7 +239,6 @@ section {
 }
 
 .skill {
-    flex: 0 0 calc(25% - 30px); /* 一排四個（扣掉 gap） */
     padding: 40px;
     background: #222;
     text-align: center;
